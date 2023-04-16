@@ -1,0 +1,144 @@
+#include <iostream>
+
+class Stack
+{
+private:
+	struct Node
+	{
+		int data;
+		Node* next;
+	};
+
+	Node* _top;
+	
+public:
+	
+	Stack() { _top = 0; }
+	Stack(const Stack& Stack) = delete;
+	Stack& operator=(const Stack& Stack) = delete;
+	~Stack() { Clear(); }
+
+	void Push(int data);
+	int Pop();
+	int Peek() const { return _top->data; }
+	void Clear();
+	int Count() const;
+	void Output();
+	bool Is_Empty() const { return _top == 0; }
+};
+
+class Array_Stack
+{
+private:
+	int* _array, _top = -1, _Size;
+public:
+	Array_Stack(int Size) : _array(new int[Size]), _Size(Size) {}
+	Array_Stack(const Array_Stack& Array_Stack) = delete;
+	Array_Stack& operator=(const Array_Stack& Array_Stack) = delete;
+	~Array_Stack() { delete[] _array; }
+
+	void Push(int data);
+	int Pop();
+	int Peek() const;
+	void Clear() { _top = -1; }
+	int Count() const { return _top + 1; }
+	bool Is_Empty() const { return _top == -1; }
+	void Output();
+};
+
+
+
+void Stack::Push(int data)
+{
+	_top = new Node{ data, _top };
+}
+int Stack::Pop()
+{
+	if (_top)
+	{
+		Node* temp = _top;
+		int data = temp->data;
+		_top = _top->next;
+		delete temp;
+		return data;
+	}
+	return INT_MAX;
+}
+void Stack::Clear()
+{
+	while (_top)
+	{
+		Node* temp = _top;
+		_top = _top->next;
+		delete temp;
+	}
+}
+int Stack::Count() const
+{
+	int count = 0;
+	Node* temp = _top;
+	while (temp)
+	{
+		count++;
+		temp = temp->next;
+	}
+	return count;
+}
+
+void Stack::Output()
+{
+	if (_top == NULL)
+	{
+		std::cout << "Stack Overflow" << std::endl;
+		return;
+	}
+	Node* temp = _top;
+	while (temp != NULL)
+	{
+		std::cout << temp->data << ' ';
+	}
+	std::cout << std::endl;
+}
+
+void Array_Stack::Push(int data)
+{
+	if (_top < _Size - 1)
+	{
+		_top++;
+		*(_array + _top) = data;
+		return;
+	}
+	std::cout << "Stack Overflow" << std::endl;
+}
+int Array_Stack::Pop()
+{
+	if (_top >= 0)
+	{
+		int data = *(_array + _top);
+		_top--;
+		return data;
+	}
+	return INT_MAX;
+}
+int Array_Stack::Peek() const
+{
+	if (_top >= 0)
+	{
+		return *(_array + _top);
+	}
+	return INT_MAX;
+}
+
+void Array_Stack::Output()
+{
+	if (_top < 0)
+	{
+		std::cout << "This stack is empty" << std::endl;
+		return;
+	}
+	for (int i = 0; i < _Size; i++)
+	{
+		std::cout << *(_array + i) << ' ';
+	}
+	std::cout << std::endl;
+}
