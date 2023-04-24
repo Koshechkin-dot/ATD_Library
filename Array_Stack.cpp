@@ -1,4 +1,4 @@
-#include "Stack.h"
+#include "Arr_Stack.h"
 #include <iostream>
 
 void Array_Stack::Push(int data)

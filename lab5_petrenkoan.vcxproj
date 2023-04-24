@@ -128,16 +128,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Array_Stack.cpp" />
-    <ClCompile Include="Deck.cpp" />
-    <ClCompile Include="Dynamic_Stack.cpp" />
+    <ClCompile Include="Deque.cpp" />
+    <ClCompile Include="DynamicArr_Stack.cpp" />
     <ClCompile Include="lab5_petrenkoan.cpp" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Stack.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Deck.h" />
+    <ClInclude Include="Arr_Stack.h" />
+    <ClInclude Include="Deque.h" />
     <ClInclude Include="ATDlib.h" />
-    <ClInclude Include="Dynamic_Stack.h" />
+    <ClInclude Include="DynamicArr_Stack.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
   </ItemGroup>

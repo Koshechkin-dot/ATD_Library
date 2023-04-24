@@ -1,21 +1,21 @@
 #pragma once
 
 
-class Deck
+class Deque
 {
 private:
-	struct CNode
+	struct Node
 	{
 		int data;
-		CNode* next;
-		CNode* prev;
+		Node* next;
+		Node* prev;
 	};
-	CNode* _head;
+	Node* _head;
 	void First(int data);
 public:
-	Deck() { _head = 0; }
-	Deck(const Deck& Deck) = delete;
-	~Deck() { Clear(); }
+	Deque() { _head = 0; }
+	Deque(const Deque& Deque) = delete;
+	~Deque() { Clear(); }
 	
 	
 	void FPush(int data);

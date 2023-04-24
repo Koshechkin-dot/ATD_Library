@@ -3,14 +3,14 @@
 class Queue
 {
 private:
-	struct LinkedList
+	struct Node
 	{
 		int data;
-		LinkedList* next;
-		LinkedList* prev;
+		Node* next;
+		Node* prev;
 	};
-	LinkedList* _tail;
-	LinkedList* _curr;
+	Node* _tail;
+	Node* _curr;
 public:
 	Queue() { _tail = _curr = 0; }
 	Queue(const Queue& Queue) = delete;

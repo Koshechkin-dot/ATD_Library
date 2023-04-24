@@ -1,4 +1,4 @@
-#include "Dynamic_Stack.h"
+#include "DynamicArr_Stack.h"
 #include <iostream>
 
 

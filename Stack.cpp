@@ -50,6 +50,7 @@ void Stack::Output()
 	while (temp != NULL)
 	{
 		std::cout << temp->data << ' ';
+		temp = temp->next;
 	}
 	std::cout << std::endl;
 }
